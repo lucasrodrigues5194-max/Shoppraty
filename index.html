@@ -962,5 +962,28 @@
 })();
 </script>
 
+<script>
+/* Wix HTML-iframe integration: reports content height to the parent Wix page
+   so the embed element can auto-resize. Pairs with the Velo snippet that
+   listens for this message and sets $w('#html1').height accordingly. Safe
+   no-op on any other host (window.parent === window when not embedded). */
+(function () {
+  if (window.parent === window) return;
+  function sendHeight() {
+    window.parent.postMessage(
+      { type: 'shoppratyHeight', height: document.documentElement.scrollHeight },
+      '*'
+    );
+  }
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(sendHeight).observe(document.body);
+  } else {
+    setInterval(sendHeight, 800);
+  }
+})();
+</script>
+
 </body>
 </html>
