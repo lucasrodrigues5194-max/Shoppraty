@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shoppraty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<header id="siteHeader">
+  <div class="wrap header-row">
+    <a class="logo" href="#top"><span>SHOPPRATY</span><span class="dot">.</span></a>
+    <nav class="primary">
+      <a href="#top">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#trending">New Arrivals</a>
+      <a href="#bestsellers">Best Sellers</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn acc-only" aria-label="Account">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c1.5-4 4.2-6 7-6s5.5 2 7 6" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L21 8H6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1.3"/><circle cx="18" cy="21" r="1.3"/></svg>
+      </button>
+      <button class="icon-btn hamburger" id="menuOpen" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <div class="mobile-panel-top">
+    <a class="logo" href="#top"><span>SHOPPRATY</span><span class="dot">.</span></a>
+    <button class="close-btn" id="menuClose" aria-label="Close menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <nav>
+    <a href="#top">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#trending">New Arrivals</a>
+    <a href="#bestsellers">Best Sellers</a>
+    <a href="#about">About</a>
+  </nav>
+  <a class="btn btn-primary" href="#bestsellers">Shop Now</a>
+</div>
+
+<main id="top">
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="cinematicHero">
+    <img class="hero-bg" src="assets/images/hero-background-abstract-3815616568.jpg" alt="">
+    <div class="hero-scrim"></div>
+    <div class="hero-lightbg"></div>
+
+    <button class="skip-intro" id="skipIntro" type="button">Skip intro →</button>
+
+    <div class="hero-inner">
+
+      <!-- Scene — the cable (real product photo) -->
+      <div class="scene scene-photo" aria-hidden="true">
+        <div class="cable-photo-wrap">
+          <img src="assets/images/hero-cable-photo-26ef4f4f62.jpg" alt="">
+          <span class="light-sweep"></span>
+        </div>
+      </div>
+
+      <!-- Scene 5 — closing (persists as the resting hero) -->
+      <div class="scene scene-closing">
+        <div class="eyebrow on-dark">Shoppraty — Best Selling Products</div>
+        <h1>SHOPPRATY<span style="color:var(--brass-tint)">.</span></h1>
+        <p class="lede">Smart finds. Everyday essentials.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#bestsellers">Explore Now →</a>
+          <a class="btn btn-ghost" href="#categories">Explore categories</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+  </section>
+
+  <!-- ================= CATEGORIES ================= -->
+  <section id="categories">
+    <div class="wrap">
+      <div class="section-head reveal reveal-up">
+        <div>
+          <div class="eyebrow">Shop by world</div>
+          <h2>EXPLORE OUR WORLD</h2>
+        </div>
+        <a class="see-all" href="#bestsellers">View all products →</a>
+      </div>
+
+      <div class="cat-grid">
+        <a class="cat-card reveal reveal-up" style="--i:0" href="#bestsellers">
+          <span class="cat-index mono">01</span>
+          <img src="assets/images/minimal-white-smart-home-devices-on-a-light-s-da6423327e.jpg" alt="Minimal white smart-home devices on a light surface">
+          <span class="scrim"></span>
+          <span class="cat-body">
+            <h3>Home</h3>
+            <span class="cat-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 18L18 6M9 6h9v9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </span>
+        </a>
+
+        <a class="cat-card reveal reveal-up" style="--i:1" href="#bestsellers">
+          <span class="cat-index mono">02</span>
+          <img src="assets/images/black-7-port-usb-hub-on-a-white-surface-254d0e8527.jpg" alt="Black 7-port USB hub on a white surface">
+          <span class="scrim"></span>
+          <span class="cat-body">
+            <h3>Tech</h3>
+            <span class="cat-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 18L18 6M9 6h9v9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </span>
+        </a>
+
+        <a class="cat-card reveal reveal-up" style="--i:2" href="#bestsellers">
+          <span class="cat-index mono">03</span>
+          <img src="assets/images/dark-minimal-car-interior-dashboard-detail-01def2a07e.jpg" alt="Dark, minimal car interior dashboard detail">
+          <span class="scrim"></span>
+          <span class="cat-body">
+            <h3>Car</h3>
+            <span class="cat-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 18L18 6M9 6h9v9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </span>
+        </a>
+
+        <a class="cat-card reveal reveal-up" style="--i:3" href="#bestsellers">
+          <span class="cat-index mono">04</span>
+          <img src="assets/images/laptop-propped-open-close-up-of-the-hinge-d51bd549a7.jpg" alt="Laptop propped open, close-up of the hinge">
+          <span class="scrim"></span>
+          <span class="cat-body">
+            <h3>Office</h3>
+            <span class="cat-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 18L18 6M9 6h9v9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </span>
+        </a>
+
+        <a class="cat-card reveal reveal-up" style="--i:4" href="#bestsellers">
+          <span class="cat-index mono">05</span>
+          <img src="assets/images/view-of-an-airplane-wing-through-the-window-a-4570b59be3.jpg" alt="View of an airplane wing through the window at dusk">
+          <span class="scrim"></span>
+          <span class="cat-body">
+            <h3>Travel</h3>
+            <span class="cat-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 18L18 6M9 6h9v9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BEST SELLERS ================= -->
+  <section id="bestsellers">
+    <div class="wrap">
+      <div class="section-head reveal reveal-up">
+        <div>
+          <div class="eyebrow">Loved by customers</div>
+          <h2>BEST SELLERS</h2>
+        </div>
+        <a class="see-all" href="#">View all →</a>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card reveal reveal-up" style="--i:0" data-product-id="hub-7port-usb" data-category="Tech" data-price="34.00">
+          <div class="product-media">
+            <span class="badge brass">Best seller</span>
+            <img src="assets/images/black-7-port-usb-hub-on-a-white-surface-254d0e8527.jpg" alt="Black 7-port USB hub with individual switches">
+            <button class="quick-add">Add to cart · £34.00</button>
+          </div>
+          <div class="product-info">
+            <span class="cat">Tech</span>
+            <h4>7-in-1 USB-C Hub</h4>
+            <div class="price-row"><span class="price">£34.00</span></div>
+          </div>
+        </article>
+
+        <article class="product-card reveal reveal-up" style="--i:1" data-product-id="mouse-silent-wireless" data-category="Tech" data-price="19.50">
+          <div class="product-media">
+            <span class="badge">Sale</span>
+            <img src="assets/images/white-wireless-mouse-side-profile-924a9c2b2d.jpg" alt="White wireless mouse, side profile">
+            <button class="quick-add">Add to cart · £19.50</button>
+          </div>
+          <div class="product-info">
+            <span class="cat">Tech</span>
+            <h4>Silent Wireless Mouse</h4>
+            <div class="price-row"><span class="price">£19.50</span><span class="price-was">£24.00</span></div>
+          </div>
+        </article>
+
+        <article class="product-card reveal reveal-up" style="--i:2" data-product-id="laptop-stand-alu" data-category="Office" data-price="28.00">
+          <div class="product-media">
+            <img src="assets/images/laptop-propped-open-close-up-of-the-hinge-d51bd549a7.jpg" alt="Laptop propped open at an angle, close-up of the hinge">
+            <button class="quick-add">Add to cart · £28.00</button>
+          </div>
+          <div class="product-info">
+            <span class="cat">Office</span>
+            <h4>Aluminium Laptop Stand</h4>
+            <div class="price-row"><span class="price">£28.00</span></div>
+          </div>
+        </article>
+
+        <article class="product-card reveal reveal-up" style="--i:3" data-product-id="keyboard-mech-lowprofile" data-category="Tech" data-price="59.00">
+          <div class="product-media">
+            <span class="badge brass">Best seller</span>
+            <img src="assets/images/black-low-profile-mechanical-keyboard-on-a-wh-f9f615518b.jpg" alt="Black low-profile mechanical keyboard on a white desk">
+            <button class="quick-add">Add to cart · £59.00</button>
+          </div>
+          <div class="product-info">
+            <span class="cat">Tech</span>
+            <h4>Low-Profile Mechanical Keyboard</h4>
+            <div class="price-row"><span class="price">£59.00</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRENDING ================= -->
+  <section id="trending">
+    <div class="wrap">
+      <div class="section-head reveal reveal-up">
+        <div>
+          <div class="eyebrow">Editorial pick</div>
+          <h2>TRENDING NOW</h2>
+        </div>
+        <a class="see-all" href="#categories">Explore the world →</a>
+      </div>
+
+      <div class="trending">
+        <div class="trending-hero reveal reveal-scale">
+          <img id="parallaxImg" src="assets/images/view-of-an-airplane-wing-through-the-window-a-4570b59be3.jpg" alt="View of an airplane wing through the window, travel essentials edit">
+          <span class="scrim"></span>
+          <div class="copy">
+            <div class="eyebrow on-dark">Travel edit</div>
+            <h3>Pack light. Arrive ready.</h3>
+            <p>The travel essentials our UK customers keep reordering, from cable organisers to carry-on tech.</p>
+          </div>
+        </div>
+        <div class="trending-side">
+          <a class="trending-item reveal reveal-up" style="--i:1" href="#bestsellers">
+            <img src="assets/images/minimal-white-smart-home-devices-on-a-light-s-da6423327e.jpg" alt="Minimal white smart-home devices">
+            <span class="scrim"></span>
+            <span class="copy">
+              <h4>Smart Home edit</h4>
+              <span class="price mono">From £22.00</span>
+            </span>
+          </a>
+          <a class="trending-item reveal reveal-up" style="--i:2" href="#bestsellers">
+            <img src="assets/images/white-wireless-mouse-side-profile-924a9c2b2d.jpg" alt="White wireless mouse close-up">
+            <span class="scrim"></span>
+            <span class="copy">
+              <h4>Desk essentials</h4>
+              <span class="price mono">From £19.50</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NEWSLETTER ================= -->
+  <section>
+    <div class="wrap">
+      <div class="newsletter reveal reveal-up">
+        <div>
+          <h2>Be first to know what's trending next.</h2>
+          <p>One email a month — new arrivals, restocks, and UK-only offers. No spam, unsubscribe any time.</p>
+        </div>
+        <form class="signup-form" onsubmit="return false;">
+          <input type="email" placeholder="you@example.com" aria-label="Email address" required>
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="about">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#top"><span>SHOPPRATY</span><span class="dot">.</span></a>
+        <p>Curated tech, home, car, office and travel essentials — dispatched from the UK.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="#categories">Home</a></li>
+          <li><a href="#categories">Tech</a></li>
+          <li><a href="#categories">Car</a></li>
+          <li><a href="#categories">Office</a></li>
+          <li><a href="#categories">Travel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="#">Delivery &amp; returns</a></li>
+          <li><a href="#">Warranty</a></li>
+          <li><a href="#">Track my order</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About Shoppraty</a></li>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Terms of service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="mono">© 2026 Shoppraty. All rights reserved.</span>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v10.5a3.5 3.5 0 1 1-3-3.46" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 4c0 2.5 2 4.5 4.5 4.5" stroke-linecap="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
