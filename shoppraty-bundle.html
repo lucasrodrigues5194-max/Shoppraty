@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shoppraty</title>
+<style>
+  :root{
+    --cream:#EFECE2;
+    --cream-2:#EDEAE0;
+    --ink:#141414;
+    --black:#0C0C0C;
+    --card-black:#121212;
+    --gold:#B08D4C;
+    --gold-deep:#8A6D3B;
+    --paper:#F6F3EA;
+    --muted:#6E6A5F;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:50;background:var(--cream-2);border-bottom:1px solid rgba(20,20,20,.12)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:22px 20px;max-width:1200px;margin:0 auto}
+  .logo{font-size:26px;font-weight:800;letter-spacing:-.02em}
+  .logo .dot{color:var(--gold)}
+  .nav-icons{display:flex;align-items:center;gap:26px}
+  .nav-icons button{background:none;border:none;cursor:pointer;padding:0;color:var(--ink)}
+
+  /* ---------- eyebrow ---------- */
+  .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:12px}
+  .eyebrow::before{content:"";width:34px;height:1px;background:currentColor;flex:none}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;background:var(--black);color:var(--paper);min-height:92vh;display:flex;align-items:flex-end;overflow:hidden}
+  .hero-art{position:absolute;inset:0;background:
+    radial-gradient(120% 90% at 85% 10%,#2A2A2A 0%,transparent 55%),
+    radial-gradient(90% 70% at 15% 80%,#1C1C1C 0%,transparent 60%),
+    #0A0A0A}
+  .hero-art::after{content:"";position:absolute;inset:-20%;background:
+    radial-gradient(60% 30% at 60% 35%,rgba(255,255,255,.10) 0%,transparent 70%);
+    transform:rotate(-18deg)}
+  .hero-inner{position:relative;width:100%;max-width:1200px;margin:0 auto;padding:0 20px 44px}
+  .hero .eyebrow{color:var(--gold)}
+  .hero h1{font-size:clamp(56px,12vw,120px);font-weight:800;letter-spacing:-.03em;line-height:1;margin:14px 0 22px}
+  .hero h1 .dot{color:var(--gold)}
+  .hero-sub{font-size:clamp(19px,4.5vw,26px);color:rgba(246,243,234,.85)}
+  .hero-scroll{font-family:var(--mono);font-size:12px;letter-spacing:.32em;color:rgba(246,243,234,.6);text-align:right;margin:26px 0 30px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{font-family:var(--sans);font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;padding:20px 30px;cursor:pointer;text-align:center;flex:1 1 220px}
+  .btn-gold{background:var(--gold);color:var(--black);border:1px solid var(--gold)}
+  .btn-ghost{background:transparent;color:var(--paper);border:1px solid rgba(246,243,234,.5)}
+
+  /* ---------- sections ---------- */
+  section{padding:72px 0}
+  .sec-head h2{font-size:clamp(38px,8.5vw,64px);font-weight:800;letter-spacing:-.02em;margin:14px 0 10px}
+  .sec-link{color:var(--gold-deep);font-weight:600;font-size:18px;display:inline-block;margin-top:6px}
+
+  /* ---------- categories ---------- */
+  .cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:34px}
+  .cat-card{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/5}
+  .cat-card:nth-child(5){grid-column:1/-1;aspect-ratio:16/9}
+  .cat-num{position:absolute;top:18px;left:18px;font-family:var(--mono);font-size:14px;letter-spacing:.15em;color:rgba(255,255,255,.75);z-index:2}
+  .cat-name{position:absolute;left:20px;bottom:18px;color:#fff;font-size:26px;font-weight:700;z-index:2}
+  .cat-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.72) 100%)}
+  .ph{position:absolute;inset:0}
+  .ph-light{background:linear-gradient(160deg,#E9E7E2 0%,#C9C7C2 55%,#AEACA8 100%)}
+  .ph-dark{background:linear-gradient(160deg,#3A3A3A 0%,#1C1C1C 60%,#101010 100%)}
+  .ph-soft{background:linear-gradient(160deg,#F1EFEA 0%,#D8D6D1 60%,#BFBDB8 100%)}
+  .ph-sky{background:linear-gradient(165deg,#8FB0B4 0%,#5E7A80 45%,#2E2A26 100%)}
+  .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 30%,rgba(255,255,255,.35) 0%,transparent 70%)}
+  .ph-dark::after{background:radial-gradient(70% 45% at 50% 30%,rgba(255,255,255,.08) 0%,transparent 70%)}
+
+  /* ---------- best sellers ---------- */
+  .prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 16px;margin-top:34px}
+  .prod-img{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1/1;background:#fff}
+  .badge{position:absolute;top:16px;left:16px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;padding:9px 16px;border-radius:999px;z-index:2}
+  .badge-gold{background:var(--gold);color:var(--black)}
+  .badge-black{background:var(--black);color:#fff}
+  .prod-cat{font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
+  .prod-name{font-size:21px;font-weight:700;letter-spacing:-.01em}
+  .prod-price{font-family:var(--mono);font-size:19px;margin-top:10px}
+  .prod-price s{color:var(--muted);margin-left:10px}
+
+  /* ---------- trending ---------- */
+  .trend-feature{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;margin-top:34px;display:flex;align-items:center}
+  .trend-feature::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.55) 100%)}
+  .trend-copy{position:relative;z-index:2;padding:26px;color:#fff}
+  .trend-copy .eyebrow{color:var(--gold)}
+  .trend-copy h3{font-size:clamp(30px,7vw,44px);font-weight:800;letter-spacing:-.02em;margin:12px 0 16px}
+  .trend-copy p{font-size:18px;line-height:1.55;color:rgba(255,255,255,.85);max-width:34ch}
+  .trend-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}
+  .trend-card{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/5}
+  .trend-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.7) 100%)}
+  .trend-meta{position:absolute;left:18px;bottom:16px;z-index:2;color:#fff}
+  .trend-meta .t{font-size:21px;font-weight:700}
+  .trend-meta .p{font-family:var(--mono);font-size:16px;color:var(--gold);margin-top:8px}
+
+  /* ---------- newsletter ---------- */
+  .news{background:var(--card-black);color:var(--paper);border-radius:18px;padding:56px 26px}
+  .news h2{font-size:clamp(32px,7.5vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.12}
+  .news p{margin:20px 0 30px;font-size:18px;line-height:1.55;color:rgba(246,243,234,.8)}
+  .news-form{display:flex;gap:12px;flex-wrap:wrap}
+  .news-form input{flex:1 1 220px;background:#1E1E1C;border:1px solid rgba(246,243,234,.25);border-radius:8px;padding:18px;color:var(--paper);font-size:17px}
+  .news-form input::placeholder{color:rgba(246,243,234,.5)}
+  .news-form .btn{flex:0 1 auto;border-radius:8px;padding:18px 28px}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--black);color:var(--paper);padding:64px 0 40px;margin-top:72px}
+  .foot-logo{font-size:30px;font-weight:800;letter-spacing:-.02em}
+  .foot-logo .dot{color:var(--gold)}
+  .foot-desc{margin:18px 0 40px;font-size:17px;line-height:1.6;color:rgba(246,243,234,.75);max-width:46ch}
+  .foot-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:34px}
+  .foot-cols h5{font-size:15px;font-weight:700;margin-bottom:16px}
+  .foot-cols li{list-style:none;margin-bottom:12px}
+  .foot-cols a{color:rgba(246,243,234,.7);font-size:15px}
+  .copy{border-top:1px solid rgba(246,243,234,.15);margin-top:44px;padding-top:24px;font-size:14px;color:rgba(246,243,234,.55)}
+
+  @media(min-width:760px){
+    .hero-inner{padding-bottom:64px}
+    .btn{flex:0 1 auto}
+    .cat-grid{grid-template-columns:repeat(3,1fr)}
+    .cat-card:nth-child(5){grid-column:auto;aspect-ratio:4/5}
+    .cat-grid .cat-card:nth-child(4),.cat-grid .cat-card:nth-child(5){aspect-ratio:4/5}
+    .prod-grid{grid-template-columns:repeat(4,1fr)}
+    .trend-feature{aspect-ratio:21/9}
+    .trend-copy{padding:48px}
+    .trend-grid{grid-template-columns:repeat(2,1fr);max-width:640px}
+    .sec-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  }
+</style>
+</head>
+<body id="top">
+
+<header>
+  <div class="nav">
+    <a class="logo" href="#top">SHOPPRATY<span class="dot">.</span></a>
+    <div class="nav-icons">
+      <button aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+      <button aria-label="Cart"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h2l2.4 12.2A2 2 0 0 0 9.36 18h7.9a2 2 0 0 0 1.95-1.57L21 8H6"/><circle cx="10" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg></button>
+      <button aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-art"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">Shoppraty — Best Selling Products</p>
+    <h1>SHOPPRATY<span class="dot">.</span></h1>
+    <p class="hero-sub">Smart finds. Everyday essentials.</p>
+    <p class="hero-scroll">SCROLL</p>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="#bestsellers">Explore Now →</a>
+      <a class="btn btn-ghost" href="#categories">Explore Categories</a>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Shop by world</p>
+        <h2>EXPLORE OUR WORLD</h2>
+      </div>
+      <a class="sec-link" href="#bestsellers">View all products →</a>
+    </div>
+    <div class="cat-grid">
+      <a class="cat-card" href="#bestsellers"><span class="ph ph-soft"></span><span class="cat-num">01</span><span class="cat-name">Home</span></a>
+      <a class="cat-card" href="#bestsellers"><span class="ph ph-light"></span><span class="cat-num">02</span><span class="cat-name">Tech</span></a>
+      <a class="cat-card" href="#bestsellers"><span class="ph ph-dark"></span><span class="cat-num">03</span><span class="cat-name">Car</span></a>
+      <a class="cat-card" href="#bestsellers"><span class="ph ph-light"></span><span class="cat-num">04</span><span class="cat-name">Office</span></a>
+      <a class="cat-card" href="#bestsellers"><span class="ph ph-sky"></span><span class="cat-num">05</span><span class="cat-name">Travel</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- BEST SELLERS -->
+<section id="bestsellers">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Loved by customers</p>
+        <h2>BEST SELLERS</h2>
+      </div>
+      <a class="sec-link" href="#">View all →</a>
+    </div>
+    <div class="prod-grid">
+      <div>
+        <div class="prod-img"><span class="ph ph-light"></span><span class="badge badge-gold">BEST SELLER</span></div>
+        <p class="prod-cat">Tech</p>
+        <h4 class="prod-name">7-in-1 USB-C Hub</h4>
+        <p class="prod-price">£34.00</p>
+      </div>
+      <div>
+        <div class="prod-img"><span class="ph ph-soft"></span><span class="badge badge-black">SALE</span></div>
+        <p class="prod-cat">Tech</p>
+        <h4 class="prod-name">Silent Wireless Mouse</h4>
+        <p class="prod-price">£19.50 <s>£24.00</s></p>
+      </div>
+      <div>
+        <div class="prod-img"><span class="ph ph-light"></span></div>
+        <p class="prod-cat">Office</p>
+        <h4 class="prod-name">Aluminium Laptop Stand</h4>
+        <p class="prod-price">£28.00</p>
+      </div>
+      <div>
+        <div class="prod-img"><span class="ph ph-dark"></span><span class="badge badge-gold">BEST SELLER</span></div>
+        <p class="prod-cat">Tech</p>
+        <h4 class="prod-name">Low-Profile Mechanical Keyboard</h4>
+        <p class="prod-price">£59.00</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRENDING -->
+<section id="trending">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Editorial pick</p>
+        <h2>TRENDING NOW</h2>
+      </div>
+      <a class="sec-link" href="#categories">Explore the world →</a>
+    </div>
+    <div class="trend-feature">
+      <span class="ph ph-sky"></span>
+      <div class="trend-copy">
+        <p class="eyebrow">Travel edit</p>
+        <h3>Pack light. Arrive ready.</h3>
+        <p>The travel essentials our UK customers keep reordering, from cable organisers to carry-on tech.</p>
+      </div>
+    </div>
+    <div class="trend-grid">
+      <a class="trend-card" href="#bestsellers"><span class="ph ph-soft"></span>
+        <span class="trend-meta"><span class="t">Smart Home edit</span><br><span class="p">From £22.00</span></span></a>
+      <a class="trend-card" href="#bestsellers"><span class="ph ph-light"></span>
+        <span class="trend-meta"><span class="t">Desk essentials</span><br><span class="p">From £19.50</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="about">
+  <div class="wrap">
+    <div class="news">
+      <h2>Be first to know what's trending next.</h2>
+      <p>One email a month — new arrivals, restocks, and UK-only offers. No spam, unsubscribe any time.</p>
+      <div class="news-form">
+        <input type="email" placeholder="you@example.com" aria-label="Email address">
+        <button class="btn btn-gold" type="button">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="foot-logo">SHOPPRATY<span class="dot">.</span></p>
+    <p class="foot-desc">Curated tech, home, car, office and travel essentials — dispatched from the UK.</p>
+    <div class="foot-cols">
+      <div><h5>Shop</h5><ul>
+        <li><a href="#categories">Home</a></li>
+        <li><a href="#categories">Tech</a></li>
+        <li><a href="#categories">Car</a></li>
+        <li><a href="#categories">Office</a></li>
+        <li><a href="#categories">Travel</a></li>
+      </ul></div>
+      <div><h5>Support</h5><ul>
+        <li><a href="#">Delivery &amp; returns</a></li>
+        <li><a href="#">Warranty</a></li>
+        <li><a href="#">Track my order</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul></div>
+      <div><h5>Company</h5><ul>
+        <li><a href="#about">About Shoppraty</a></li>
+        <li><a href="#">Privacy policy</a></li>
+        <li><a href="#">Terms of service</a></li>
+      </ul></div>
+    </div>
+    <p class="copy">© 2026 Shoppraty. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
